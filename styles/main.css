@@ -127,10 +127,20 @@ main {
 .main_menu a {
     text-decoration: none;
 }
+.menu_items {
+    display: flex;
+    gap: 19px;
+}
 .menu_item {
-    width: 358px;
+    width: 357.5px;
     height: 170px;
     border-radius: 5px;
+    overflow: hidden;
+}
+.menu_item a {
+    display: block; /* Додайте цю властивість, щоб посилання займало всю доступну площу */
+    width: 100%; /* Розтягнути посилання на всю ширину блоку */
+    height: 100%; /* Розтягнути посилання на всю висоту блоку */
 }
 .menu_item cars1 {
     display: none;
@@ -176,10 +186,7 @@ main {
     position: relative;
     overflow: hidden;
 }
-.cars {
-    margin-left: 18px;
-    margin-right: 18px;
-}
+
 .cars img {
     display: block;
     position: absolute;
@@ -590,30 +597,28 @@ main {
     
 }
 .place {
-    padding-left: 15px;
-    margin-top: 9px;
+    padding-left: 16px;
+    margin-top: 8px;
 }
 .place span {
     padding-left: 4px;
 }
 .time {
-    margin-top: 10px;
+    margin-top: 11px;
     padding-left: 100px;
     font-size: 13px;
 
 }
-/* FOR ADAPTIVE ELEMENTS */
-.sign_in_icon {
-    position: absolute;
-    left: 20px;
-    top: 120px;
-    opacity: 0;
+.account {
+    display: none;
 }
+/* FOR ADAPTIVE ELEMENTS */
+
 
 /* ADAPTIVE FOR 768 px MAX */
 @media screen and (max-width: 768px) {
     .top_header_backgr, .header_main_backgr, .container {
-        width: 768px;
+        width: 100vw;
     }
     .top_header_backgr {
         height: 0;
@@ -626,28 +631,30 @@ main {
        
         position: fixed;
         top:64px;
-        width: 100%;
+        
         height: 102px;
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-around;
         align-items: center;
-        padding-left: 10px;
+        
        
         background-color: #E8E8EE;
+        width: 100vw;
+        
         
     }
     .header_main .logo{
-        width: 200px;
+        width: 150px;
 
     }
     .search {
-        width: 300px; 
+        min-width: 62px; 
         margin-left: 10px;
+        width: 30vw;
         
     }
     .search span {
-        font-size: 20px;
-        opacity: 0.4;
+        display: none;
     }
     .search-icon img {
         width: 20px;
@@ -657,21 +664,26 @@ main {
         display: none;
     }
     .vertical_search_line {
-        margin-left: -168px;
+        margin-left: 11px;
     }
     .search_cities {
         width: 100px;
         margin-right: 300px;
     } 
     .submit_btn {
-        width: 160px;
-        font-size: 14px;
-        margin-left: 10px;
+        display: none;
     }
     .submit_btn span {
         font-size: 13px;
     }
-   
+    .account {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 10px;
+        margin-right: 10px;
+    }
     .feedback {
         display: none;
     }
@@ -682,131 +694,171 @@ main {
         top: 34px;
         font-size: 30px;
         color: #745ACD;
+        
     }
 /* END HEADER */
 /* MAIN_MENU */
-    .main_menu {
-        position: relative;
+   
+.main_menu {
+    position: relative;
     display: flex;
-    padding: 0;
-    margin: 0;
-    flex-wrap: wrap;
-    height: 400px;
-    width: 100%;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: no-wrap;
+    width: 100vw;
+    height: 171px;
+
+    
+    
+}
+.menu_items a:nth-child(1), .menu_items a:nth-child(3) {
+        display: none;
     }
-    .phones2 {
-        position: absolute;
-       width: 100%;
-       height: 400px;
-       border-radius: 0;
+    .menu_item {
+        display: flex;
+        justify-content: space-between;
+        width: 80vw;
+        border-radius: 0;
     }
     .phones_block {
-        margin-top: 180px;
-        margin-left: 10px;
-    }
-    .phones2 img {
-        width: 638px;
-        position: absolute;
-        top: 0px;
-        right: 0px;
+        width: 120px;
+        padding-top: 10px;
+        padding-left: 15px;
     }
     .phones_block span:nth-child(1) {
-        font-size: 44px;
+        font-size: 32px;
     }
     .phones_block span:nth-child(2) {
-        font-size: 24px;
-        width: 200px;
-    }
-    .menu_item:nth-child(3) {
-        display: none;
-    }
-    .cars, .cars1 {
-        display: none;
-    }
-    main_menu .left_slide_btn {
-        position: absolute;
-        top: 50px;
-        left: 150px;
-    }
-    .left_slide_btn, .right_slide_btn {
-        position: absolute;
-        top: 43%;
-       
+        font-size: 19px;
     }
     .right_slide_btn {
-        right: 0;
-        width: 70px;
-        height: 70px;
-    }
-    .right_slide_btn img {
-        width: 15px;
-        opacity: 0.3;
+        position: absolute;
+        right: 2%;
+        top: 75px;
+        border: none;
+        
     }
     .left_slide_btn {
-        left: 0;
-        width: 70px;
-        height: 70px;
-        z-index: 2;
+        position: absolute;
+        left: 2%;
+        top: 75px;
+        border: none;
+        
     }
-    .left_slide_btn img {
-        width: 15px;
-        opacity: 0.3;
+    .right_slide_btn img, .left_slide_btn img {
+        width: 2vw;
+        opacity: 0.2;
     }
+    
+    
+    
+    
     .info_nav {
-        width: 100%;
+        width: 100vw;
         font-size: 24px;
-        padding-left: 20px;
+        padding-left: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .info_nav a{
+        
+        font-size: 14px;
+        
     }
     .current_page {
-        font-size: 24px;
+        font-size: 19px;
+        text-decoration: underline;
     }
+
+
     .content_container {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        width: 100vw;
+        height: fit-content;
+        border: none;
     
     }
     .empty {
         display: none;
     }
-    .product_info {
-        padding-left: 20px;
+    .product_header {
+        font-size: 26px;
     }
+    
     .info_add_about_product {
         font-size: 14px;
     }
     .product_price {
-        margin-left: 0;
-        font-size: 16px;
+        justify-content: center;
+        margin-top: 10px;
+        font-size: 14px;
+        margin-top: 14px;
+    }
+    .product_info {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    .info_add_about_product {
+        padding: 0;
+    }
+    .product_price span:nth-child(1) {
+        font-size: 20px;
+    }
+    .btc_image {
+        width: 66px;
+        height: 32px;
     }
     .some_text {
         margin-left: 10px;
+        opacity: 0.1;
+        padding-bottom: 0;
     }
     .product_image_main {
-        width: 100%;
+        width: 100vw;
         margin-left: 0;
+        height: fit-content;
+
     }
     .product_image_main img {
-        width: 100%;
-    }
-    .product_image_main a .left_slide_btn {
-        border: none;
-        background: none;
+        width: 100vw;
+        
     }
     .product_image_main .right_slide_btn {
-        background-color: none;
-        border: 0;
-    background: initial;
+        top: 30vw;
+        background-color: inherit;
     }
+    .product_image_main .left_slide_btn {
+        top: 30vw;
+        background-color: inherit;
+    }
+    .product_image_main .left_slide_btn img {
+        width: 32px;
+    }
+    .product_image_main .left_slide_btn  {
+        width: 32px;
+        height: 32px;
+    }
+
+
+
+
     .product_contacts {
         grid-area: contacts;
         /* width: 323px; */
         /* height: auto; */
-        margin-left: 20px;
+       
         display: flex;
         flex-wrap: wrap;
         width: 100%;
         margin-top: 10px;
+        justify-content: center;
+        gap: 10px;
+        margin: 0;
     }
    
     .send_message {
@@ -831,16 +883,22 @@ main {
         color: #745ACD;
         font-weight: 600;
         border-radius: 3px;
-        margin-left: 40px;
+        
+    }
+    .add_contact_info {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-left: 20px;
+
     }
     .contact_person, .adress, .category {
         display: flex;
-        padding-top: 20px;
         flex-wrap: wrap;
         width: 240px;
-        padding-top: 10px;
-        margin: 0;
         font-size: 22px;
+        margin: 0;
     }
     .contact_person span:nth-child(1) {
         font-size: 22px;
@@ -849,64 +907,83 @@ main {
     .contact_person {
         width: 210px;
     }
-    .adress, .category {
-        padding-left: 20px;
-    }
+   
     .add_product_images {
         display: none;
     }
     .product_description {
         display: flex;
-        width: 100%;
-        height: 178px;
-        margin-left: 10px;
-        padding-top: 25px;
-        
+        width: 100vw;
+        height: fit-content;
+        margin: 0;
+        padding-top: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-align: center;
+        border: none;
     }
     .product_description span:nth-child(2) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .spec li {
-        list-style: none;
-        display: inline;
-        padding: 0;
-        margin: 0;
-        padding-left: 60px;
-        font-size: 22px;
-    }
-    .answer li {
-        display: inline;
-        margin: 0;
-        padding: 0;
-        padding-left: 78px;
-        font-size: 22px;
-    }
-    .answer li:nth-child(2) {
-        padding-left: 150px;
-    }
-    .answer li:nth-child(3) {
-        padding-left: 170px;
+       padding: 10px 20px 0 20px;
+       line-height: 1;
     }
     .product_specifications {
-        width: 768px;
-        margin-top: -60px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
+        padding-left: 20px;
+        padding-top: 10px;
     }
-    .spec {
-        width: 768px;
+    .product_specifications ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    .product_specifications ul:nth-child(2) {
+        padding: 0;
+        margin: 0;
+    }
+    product_specifications ul:nth-child(1) {
+       padding: 0;
+    }
+    .product_specifications ul:nth-child(1) {
+        padding-left: 0;
+        padding-top: 0;
+    }
+    .answer li:nth-child(3) {
+        padding-top: 0;
+    }
+    .spec li:nth-child(2) {
+        padding-top: 0;
+    }
+    .spec li:nth-child(3) {
+        padding-top: 0;
+    }
+    .spec li:nth-child(3) {
+        padding-top: 0;
+    }
+    .answer li:nth-child(2) {
+        padding-top: 0;
+    }
+    .same_advertisement {
+        justify-content: center;
+        width: 100%;
+    }
 
-    }
-    .answer {
-        width: 768px;
-        margin-top: -20px;
-    }
+
+
+
+
     .same {
-        text-align: center;
+        
+        display: flex;
+        width: 100vw;
+        justify-content: center;
     }
     .content_box {
-        width: 340px;
-        height: 506px;
-        margin: 2px 0 0 20px;
+        width: 95%;
+        height: 100%;
         font-size: 22px;
     }
     .time {
@@ -916,13 +993,11 @@ main {
     .header_main {
         z-index: 1000;
     }
-    .header_main .logo {
-        margin-left: 10px;
-    }
+   
      .sign_in_icon {
-        left: 716px;
+        padding-left: 5px;
     }
-
+    
 
 
 }
